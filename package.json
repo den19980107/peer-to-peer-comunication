@@ -1,4 +1,12 @@
 {
-  "name": "",
-  "version": ""
+    "name": "socket-chat-example",
+    "version": "0.0.1",
+    "description": "my first socket.io app",
+    "dependencies": {
+        "express": "^4.15.2",
+        "http": "0.0.0",
+        "simple-peer": "^9.1.2",
+        "socket.io": "^2.1.1"
+    },
+    "start": "server.js"
 }
