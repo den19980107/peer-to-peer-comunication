@@ -26,7 +26,7 @@ function draw() {
 
 
     var d;
-    var worldRecord = 500;
+    var worldRecord = 20;
     var worldpos = {
         x: 0,
         y: 0
@@ -44,18 +44,17 @@ function draw() {
             pixels[index + 3] = a;
             d = Math.sqrt((r - targetColor.r) * (r - targetColor.r) + (g - targetColor.g) * (g - targetColor.g) + (b - targetColor.b) * (b - targetColor.b));
             if (d < worldRecord) {
-                // worldRecord = d;
-                // worldpos.x = x;
-                // worldpos.y = y;
+
                 var found = false;
-                for (var b in blobs) {
-                    if (b.isNear(x, y)) {
-                        b.add(x, y);
+                for (var i in blobs) {
+
+                    if (blobs[i].isNear(x, y)) {
+                        blobs[i].add(x, y);
                         found = true;
                         break;
                     }
                 }
-                if (blobs.length == 0) {
+                if (!found) {
                     var b = new Blob(x, y);
                     blobs.push(b);
                 }
@@ -64,14 +63,15 @@ function draw() {
 
         }
     }
-    console.log(worldRecord);
 
-    // updatePixels();
+    updatePixels();
     // fill(255);
     // ellipse(worldpos.x, worldpos.y, 10, 10);
-    for (var b in blobs) {
-        b.show();
+    for (var i in blobs) {
+        blobs[i].show();
     }
+
+
 }
 
 function mouseClicked() {
@@ -114,3 +114,54 @@ function mouseClicked() {
 //     console.log(string);
 
 // })
+
+
+class Blob {
+    constructor(x, y) {
+        this.minx = x;
+        this.miny = y;
+        this.maxx = x;
+        this.maxy = y;
+    }
+    isNear(x, y) {
+        var cx = (this.minx + this.maxx) / 2;
+        var cy = (this.miny + this.maxy) / 2;
+        var d = dist(cx, cy, x, y);
+        if (d < 10) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    add(x, y) {
+        this.minx = min(this.minx, x);
+        this.miny = min(this.miny, y);
+        this.maxx = max(this.maxx, x);
+        this.maxy = max(this.maxy, y);
+
+    }
+
+    show() {
+        stroke(0);
+        fill(255);
+        strokeWeight(2);
+        rectMode(CORNERS);
+        rect(this.minx, this.miny, this.maxx, this.maxy);
+    }
+
+    min(a, b) {
+        if (a < b) {
+            return a;
+        } else {
+            return b;
+        }
+    }
+    max(a, b) {
+        if (a > b) {
+            return a;
+        } else {
+            return b;
+        }
+    }
+}
