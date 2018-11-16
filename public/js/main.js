@@ -1,10 +1,12 @@
 // var socket = io();
 // var video;
+
 var targetColor = {
     r: 0,
     g: 0,
     b: 0
 };
+
 
 function setup() {
     createCanvas(320, 240);
@@ -19,6 +21,10 @@ function draw() {
     background(51);
     video.loadPixels();
     loadPixels();
+
+    var blobs = [];
+
+
     var d;
     var worldRecord = 500;
     var worldpos = {
@@ -38,18 +44,34 @@ function draw() {
             pixels[index + 3] = a;
             d = Math.sqrt((r - targetColor.r) * (r - targetColor.r) + (g - targetColor.g) * (g - targetColor.g) + (b - targetColor.b) * (b - targetColor.b));
             if (d < worldRecord) {
-                worldRecord = d;
-                worldpos.x = x;
-                worldpos.y = y;
+                // worldRecord = d;
+                // worldpos.x = x;
+                // worldpos.y = y;
+                var found = false;
+                for (var b in blobs) {
+                    if (b.isNear(x, y)) {
+                        b.add(x, y);
+                        found = true;
+                        break;
+                    }
+                }
+                if (blobs.length == 0) {
+                    var b = new Blob(x, y);
+                    blobs.push(b);
+                }
+
             }
 
         }
     }
     console.log(worldRecord);
 
-    updatePixels();
-    fill(255);
-    ellipse(worldpos.x, worldpos.y, 10, 10);
+    // updatePixels();
+    // fill(255);
+    // ellipse(worldpos.x, worldpos.y, 10, 10);
+    for (var b in blobs) {
+        b.show();
+    }
 }
 
 function mouseClicked() {
