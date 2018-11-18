@@ -40,7 +40,7 @@ function draw() {
 
         for (let y = 0; y < video.height; y++) {
             for (let x = 0; x < video.width; x++) {
-                var index = (x + y * video.width) * 4;
+                var index = (video.width - x + 1 + y * video.width) * 4;
                 var r = video.pixels[index + 0];
                 var g = video.pixels[index + 1];
                 var b = video.pixels[index + 2];
