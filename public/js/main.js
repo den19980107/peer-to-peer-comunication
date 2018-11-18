@@ -36,7 +36,7 @@ function draw() {
 
 
         var d;
-        var worldRecord = 20;
+        var worldRecord = 10;
 
         for (let y = 0; y < video.height; y++) {
             for (let x = 0; x < video.width; x++) {
