@@ -164,8 +164,11 @@ class Blob {
         this.maxy = y;
     }
     isNear(x, y) {
-        var cx = (this.minx + this.maxx) / 2;
-        var cy = (this.miny + this.maxy) / 2;
+        var cx = this.max(this.min(x, this.maxx), this.minx);
+        var cy = this.max(this.min(y, this.maxy), this.miny);
+
+        // var cx = (this.minx + this.maxx) / 2;
+        // var cy = (this.miny + this.maxy) / 2;
         var d = dist(cx, cy, x, y);
         if (d < 10) {
             return true;
