@@ -145,11 +145,11 @@ socket.on("position", function (data) {
             lowest.miny = data[i].miny;
             lowest.minx = data[i].minx;
         }
-        stroke(0);
-        fill(255);
-        strokeWeight(2);
-        rectMode(CORNERS);
-        rect(data[i].minx, data[i].miny, data[i].maxx, data[i].maxy);
+        // stroke(0);
+        // fill(255);
+        // strokeWeight(2);
+        // rectMode(CORNERS);
+        // rect(data[i].minx, data[i].miny, data[i].maxx, data[i].maxy);
 
     }
     lowest.showmin();
