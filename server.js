@@ -20,8 +20,10 @@ var io = socket(server);
 
 io.on('connection', function (socket) {
     console.log("a user connected");
-    socket.on("video", function (obj) {
-        socket.broadcast.emit('video', obj);
+    socket.on("position", function (obj) {
+        console.log(obj);
+
+        socket.broadcast.emit('position', obj);
     })
 
 })
