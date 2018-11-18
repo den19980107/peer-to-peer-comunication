@@ -150,10 +150,9 @@ socket.on("position", function (data) {
         strokeWeight(2);
         rectMode(CORNERS);
         rect(data[i].minx, data[i].miny, data[i].maxx, data[i].maxy);
-        lowest.showmin();
+
     }
-
-
+    lowest.showmin();
 })
 
 
