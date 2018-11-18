@@ -80,7 +80,7 @@ function draw() {
             if (blobs[i].area() > 100) {
                 console.log(blobs[i].area());
 
-                blobs[i].show();
+                //blobs[i].show();
             } else {
                 blobs.pop(blobs[i]);
 
@@ -198,8 +198,9 @@ class Blob {
         stroke(0);
         fill(255, 0, 0);
         strokeWeight(2);
-        rectMode(CORNERS);
-        rect(this.minx, this.miny, this.maxx, this.maxy);
+        var cx = (this.minx + this.miny) / 2;
+        var cy = (this.maxy - 20);
+        ellipse(cx, cy, 10, 10);
     }
 
 
