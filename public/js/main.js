@@ -135,12 +135,22 @@ function mouseClicked() {
 
 socket.on("position", function (data) {
     background(0);
+    var flag = 0;
+    var lowest = new Blob(0, 0);
     for (let i = 0; i < data.length; i++) {
+        if (data[i].maxy > flag) {
+            flag = data[i].maxy;
+            lowest.maxy = data[i].maxy;
+            lowest.maxx = data[i].maxx;
+            lowest.miny = data[i].miny;
+            lowest.minx = data[i].minx;
+        }
         stroke(0);
         fill(255);
         strokeWeight(2);
         rectMode(CORNERS);
         rect(data[i].minx, data[i].miny, data[i].maxx, data[i].maxy);
+        lowest.showmin
     }
 
 
