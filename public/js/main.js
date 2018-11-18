@@ -80,7 +80,7 @@ function draw() {
             if (blobs[i].area() > 100) {
                 console.log(blobs[i].area());
 
-                //blobs[i].show();
+                blobs[i].show();
             } else {
                 blobs.pop(blobs[i]);
 
