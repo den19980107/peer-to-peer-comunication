@@ -78,7 +78,7 @@ function draw() {
         var data = [];
         for (var i in blobs) {
             if (blobs[i].area() > 100) {
-                console.log(blobs[i].area());
+                //console.log(blobs[i].area());
 
                 blobs[i].show();
             } else {
@@ -118,6 +118,8 @@ function mouseClicked() {
         b: pixels[index + 2]
     }
     console.log(targetColor);
+    console.log(mouseY);
+
 
 
 }
@@ -200,7 +202,7 @@ class Blob {
         strokeWeight(2);
         var cx = (this.minx + this.miny) / 2;
         var cy = (this.maxy - 20);
-        ellipse(cx, cy, 10, 10);
+        ellipse(cx, 240 - cy, 10, 10);
     }
 
 
