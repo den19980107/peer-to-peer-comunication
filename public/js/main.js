@@ -36,11 +36,11 @@ function draw() {
 
 
         var d;
-        var worldRecord = 50;
+        var worldRecord = 20;
 
         for (let y = 0; y < video.height; y++) {
             for (let x = 0; x < video.width; x++) {
-                var index = (video.width - x + 1 + y * video.width) * 4;
+                var index = (x + (y * video.width)) * 4;
                 var r = video.pixels[index + 0];
                 var g = video.pixels[index + 1];
                 var b = video.pixels[index + 2];
@@ -73,11 +73,25 @@ function draw() {
 
 
         updatePixels();
-
+        var flag = 0;
+        var lowest = new Blob(0, 0);
         var data = [];
         for (var i in blobs) {
+            if (blobs[i].area() > 100) {
+                console.log(blobs[i].area());
 
-            blobs[i].show();
+                blobs[i].show();
+            } else {
+                blobs.pop(blobs[i]);
+
+            }
+        }
+        for (var i in blobs) {
+
+            if (blobs[i].maxy > flag) {
+                flag = blobs[i].maxy;
+                lowest = blobs[i];
+            }
             pos = {
                 minx: blobs[i].minx,
                 miny: blobs[i].miny,
@@ -86,6 +100,7 @@ function draw() {
             }
             data.push(pos);
         }
+        lowest.showmin();
         socket.emit("position", data);
 
     }
@@ -149,7 +164,9 @@ class Blob {
             return false;
         }
     }
-
+    area() {
+        return (this.maxx - this.minx) * (this.maxy - this.miny);
+    }
     add(x, y) {
         this.minx = min(this.minx, x);
         this.miny = min(this.miny, y);
@@ -165,6 +182,14 @@ class Blob {
         rectMode(CORNERS);
         rect(this.minx, this.miny, this.maxx, this.maxy);
     }
+    showmin() {
+        stroke(0);
+        fill(255, 0, 0);
+        strokeWeight(2);
+        rectMode(CORNERS);
+        rect(this.minx, this.miny, this.maxx, this.maxy);
+    }
+
 
     min(a, b) {
         if (a < b) {
