@@ -10,13 +10,14 @@ var targetColor = {
 closeBtn.onclick = function () {
     closeVideo = !closeVideo;
 }
-
+var w = 667;
+var h = 375
 
 function setup() {
-    createCanvas(667, 375);
+    createCanvas(w, h);
     pixelDensity(1);
     video = createCapture(VIDEO);
-    video.size(667, 375)
+    video.size(w, h)
     video.hide();
     background(0);
 }
@@ -202,7 +203,7 @@ class Blob {
         strokeWeight(2);
         var cx = (this.minx + this.maxx) / 2;
         var cy = (this.maxy - 20);
-        ellipse(cx, 370 - cy, 10, 10);
+        ellipse(w - cx, h - cy, 10, 10);
     }
 
 
