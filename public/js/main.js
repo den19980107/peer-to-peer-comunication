@@ -13,10 +13,10 @@ closeBtn.onclick = function () {
 
 
 function setup() {
-    createCanvas(320, 240);
+    createCanvas(667, 375);
     pixelDensity(1);
     video = createCapture(VIDEO);
-    video.size(320, 240)
+    video.size(667, 375)
     video.hide();
     background(0);
 }
@@ -36,11 +36,11 @@ function draw() {
 
 
         var d;
-        var worldRecord = 10;
+        var worldRecord = 15;
 
         for (let y = 0; y < video.height; y++) {
             for (let x = 0; x < video.width; x++) {
-                var index = (video.width - x + 1 + (y * video.width)) * 4;
+                var index = (x + (y * video.width)) * 4;
                 var r = video.pixels[index + 0];
                 var g = video.pixels[index + 1];
                 var b = video.pixels[index + 2];
