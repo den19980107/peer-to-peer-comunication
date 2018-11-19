@@ -202,7 +202,7 @@ class Blob {
         strokeWeight(2);
         var cx = (this.minx + this.miny) / 2;
         var cy = (this.maxy - 20);
-        ellipse(cx, 240 - cy, 10, 10);
+        ellipse(cx, 370 - cy, 10, 10);
     }
 
 
