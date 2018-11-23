@@ -209,9 +209,9 @@ class Blob {
         rect(this.minx, this.miny, this.maxx, this.maxy);
     }
     showmin() {
-        stroke(0);
+        noStroke();
         fill(255, 0, 0);
-        strokeWeight(2);
+
         var cx = (this.minx + this.maxx) / 2;
         var cy = (this.maxy - 20);
         ellipse(w - cx, h - cy, 10, 10);
