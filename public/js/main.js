@@ -134,10 +134,19 @@ function mouseClicked() {
 
 
 
-
-
+var drawbtn = document.getElementById('draw');
+var canDraw = false;
+drawbtn.onclick = function () {
+    canDraw = !canDraw;
+}
 socket.on("position", function (data) {
-    background(0);
+    if (canDraw) {
+
+    } else {
+        background(0);
+    }
+
+
     var flag = 0;
     var lowest = new Blob(0, 0);
     for (let i = 0; i < data.length; i++) {
@@ -155,6 +164,8 @@ socket.on("position", function (data) {
         // rect(data[i].minx, data[i].miny, data[i].maxx, data[i].maxy);
 
     }
+
+
     lowest.showmin();
 })
 
