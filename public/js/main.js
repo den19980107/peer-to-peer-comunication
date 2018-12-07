@@ -199,7 +199,7 @@ class Blob {
         // var cx = (this.minx + this.maxx) / 2;
         // var cy = (this.miny + this.maxy) / 2;
         var d = dist(cx, cy, x, y);
-        if (d < 20) {
+        if (d < 40) {
             return true;
         } else {
             return false;
