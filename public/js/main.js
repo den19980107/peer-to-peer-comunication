@@ -236,7 +236,7 @@ class Blob {
 
         pointY = map(pointY, 300, 375, 0, 375);
 
-        ellipse(w - cx, h - cy, 10, 10);
+        ellipse(pointX, pointY, 10, 10);
     }
 
 
