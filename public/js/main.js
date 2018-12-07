@@ -2,8 +2,8 @@ var socket = io();
 var closeBtn = document.getElementById('closeVideo');
 var closeVideo = false;
 var targetColor = {
-    r: 40,
-    g: 43,
+    r: 30,
+    g: 29,
     b: 96
 };
 
@@ -43,7 +43,7 @@ function draw() {
 
 
         var d;
-        var worldRecord = 30;
+        var worldRecord = 20;
 
         for (let y = 0; y < video.height; y++) {
             for (let x = 0; x < video.width; x++) {
@@ -56,7 +56,7 @@ function draw() {
                 pixels[index + 1] = g;
                 pixels[index + 2] = b;
                 pixels[index + 3] = a;
-                d = Math.sqrt(((r - targetColor.r) * (r - targetColor.r)) / 2 + ((g - targetColor.g) * (g - targetColor.g)) / 2 + (b - targetColor.b) * (b - targetColor.b));
+                d = Math.sqrt((r - targetColor.r) * (r - targetColor.r) + (g - targetColor.g) * (g - targetColor.g) + (b - targetColor.b) * (b - targetColor.b));
                 if (d < worldRecord) {
 
                     var found = false;
