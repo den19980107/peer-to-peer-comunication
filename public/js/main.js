@@ -29,7 +29,6 @@ function setup() {
 
 function draw() {
 
-    background(0);
 
     if (closeVideo) {
         closeBtn.innerText = "開啟影片";
