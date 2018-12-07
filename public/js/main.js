@@ -217,10 +217,14 @@ class Blob {
         var newX = (this.minx + this.maxx) / 2;
         var newY = (this.maxy - 20);
         //smooth the path
-        cx = lerp(cx, newX, 0.3);
-        cy = lerp(cy, newY, 0.3);
-        console.log(newX);
-        console.log(newY);
+        if (cx < 1 || cy < 1) {
+
+        } else {
+            cx = lerp(cx, newX, 0.3);
+            cy = lerp(cy, newY, 0.3);
+        }
+
+
         ellipse(w - cx, h - cy, 10, 10);
     }
 
