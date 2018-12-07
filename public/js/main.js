@@ -227,8 +227,6 @@ class Blob {
     showmin() {
         noStroke();
         fill(255, 0, 0);
-        let pointX = w - cx;
-        let pointY = h - cy;
         var newX = (this.minx + this.maxx) / 2;
         var newY = (this.maxy - 20);
         //smooth the path
@@ -238,9 +236,14 @@ class Blob {
             if (this.inframe(pointX, pointY)) {
                 cx = lerp(cx, newX, 0.5);
                 cy = lerp(cy, newY, 0.5);
+            } else {
+                cx = newX;
+                cy = newY;
             }
 
         }
+        let pointX = w - cx;
+        let pointY = h - cy;
         pointY = map(pointY, 300, 375, 0, 375);
         pointX = map(pointX, 59, 636, 0, 667);
 
