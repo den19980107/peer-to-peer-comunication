@@ -242,7 +242,7 @@ class Blob {
         let pointY = h - cy;
 
         pointY = map(pointY, 300, 375, 0, 375);
-        pointX = map(pointX, 100, 567, 0, 667);
+        pointX = map(pointX, 59, 636, 0, 667);
         ellipse(pointX, pointY, 10, 10);
     }
 
