@@ -233,8 +233,8 @@ class Blob {
         if (newX < 1 || newY < 1) {
 
         } else {
-            cx = lerp(cx, newX, 0.3);
-            cy = lerp(cy, newY, 0.3);
+            cx = lerp(cx, newX, 0.6);
+            cy = lerp(cy, newY, 0.6);
         }
 
         let pointX = w - cx;
