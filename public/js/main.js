@@ -11,7 +11,9 @@ closeBtn.onclick = function () {
     closeVideo = !closeVideo;
 }
 var w = 667;
-var h = 375
+var h = 375;
+var cx = 0;
+var cy = 0;
 
 function setup() {
     createCanvas(w, h);
@@ -212,8 +214,11 @@ class Blob {
         noStroke();
         fill(255, 0, 0);
 
-        var cx = (this.minx + this.maxx) / 2;
-        var cy = (this.maxy - 20);
+        var newX = (this.minx + this.maxx) / 2;
+        var newY = (this.maxy - 20);
+        //smooth the path
+        cx = lerp(cx, newX, 0.3);
+        cy = lerp(cy, newY, 0.3);
         ellipse(w - cx, h - cy, 10, 10);
     }
 
