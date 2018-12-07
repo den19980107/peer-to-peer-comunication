@@ -230,11 +230,12 @@ class Blob {
             cx = lerp(cx, newX, 0.3);
             cy = lerp(cy, newY, 0.3);
         }
-        if (cy > 300) {
-            cy = map(300, cy, 0, 375);
+
+        pointX = w - cx;
+        pointY = h - cy;
+        if (pointY > 300) {
+            pointY = map(300, pointY, 0, 375);
         }
-
-
         ellipse(w - cx, h - cy, 10, 10);
     }
 
