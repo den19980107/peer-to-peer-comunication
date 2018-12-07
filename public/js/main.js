@@ -231,8 +231,8 @@ class Blob {
             cy = lerp(cy, newY, 0.3);
         }
 
-        pointX = w - cx;
-        pointY = h - cy;
+        let pointX = w - cx;
+        let pointY = h - cy;
         if (pointY > 300) {
             pointY = map(300, pointY, 0, 375);
         }
