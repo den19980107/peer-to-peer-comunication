@@ -219,8 +219,8 @@ class Blob {
         //smooth the path
         cx = lerp(cx, newX, 0.3);
         cy = lerp(cy, newY, 0.3);
-        console.log(cx);
-        console.log(cy);
+        console.log(newX);
+        console.log(newY);
         ellipse(w - cx, h - cy, 10, 10);
     }
 
