@@ -227,23 +227,31 @@ class Blob {
     showmin() {
         noStroke();
         fill(255, 0, 0);
-
+        let pointX = w - cx;
+        let pointY = h - cy;
         var newX = (this.minx + this.maxx) / 2;
         var newY = (this.maxy - 20);
         //smooth the path
         if (newX < 1 || newY < 1) {
 
         } else {
-            cx = lerp(cx, newX, 0.5);
-            cy = lerp(cy, newY, 0.5);
+            if (this.inframe(pointX, pointY)) {
+                cx = lerp(cx, newX, 0.5);
+                cy = lerp(cy, newY, 0.5);
+            }
+
         }
-
-        let pointX = w - cx;
-        let pointY = h - cy;
-
         pointY = map(pointY, 300, 375, 0, 375);
         pointX = map(pointX, 59, 636, 0, 667);
+
         ellipse(pointX, pointY, 10, 10);
+    }
+    inframe(x, y) {
+        if (x < width && x >= 0 && y >= 0 && y < height) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
