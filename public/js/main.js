@@ -2,9 +2,9 @@ var socket = io();
 var closeBtn = document.getElementById('closeVideo');
 var closeVideo = false;
 var targetColor = {
-    r: 25,
-    g: 30,
-    b: 101
+    r: 40,
+    g: 43,
+    b: 96
 };
 
 closeBtn.onclick = function () {
