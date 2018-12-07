@@ -43,7 +43,7 @@ function draw() {
 
 
         var d;
-        var worldRecord = 15;
+        var worldRecord = 30;
 
         for (let y = 0; y < video.height; y++) {
             for (let x = 0; x < video.width; x++) {
@@ -199,7 +199,7 @@ class Blob {
         // var cx = (this.minx + this.maxx) / 2;
         // var cy = (this.miny + this.maxy) / 2;
         var d = dist(cx, cy, x, y);
-        if (d < 40) {
+        if (d < 20) {
             return true;
         } else {
             return false;
