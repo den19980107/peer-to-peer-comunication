@@ -56,7 +56,7 @@ function draw() {
                 pixels[index + 1] = g;
                 pixels[index + 2] = b;
                 pixels[index + 3] = a;
-                d = Math.sqrt((r - targetColor.r) * (r - targetColor.r) + (g - targetColor.g) * (g - targetColor.g) + (b - targetColor.b) * (b - targetColor.b));
+                d = Math.sqrt(((r - targetColor.r) * (r - targetColor.r)) / 2 + ((g - targetColor.g) * (g - targetColor.g)) / 2 + (b - targetColor.b) * (b - targetColor.b));
                 if (d < worldRecord) {
 
                     var found = false;
