@@ -217,7 +217,7 @@ class Blob {
         var newX = (this.minx + this.maxx) / 2;
         var newY = (this.maxy - 20);
         //smooth the path
-        if (cx < 1 || cy < 1) {
+        if (newX < 1 || newY < 1) {
 
         } else {
             cx = lerp(cx, newX, 0.3);
