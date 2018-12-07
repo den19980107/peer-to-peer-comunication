@@ -233,14 +233,8 @@ class Blob {
         if (newX < 1 || newY < 1) {
 
         } else {
-            if (this.inframe(pointX, pointY)) {
-                cx = lerp(cx, newX, 0.5);
-                cy = lerp(cy, newY, 0.5);
-            } else {
-                cx = newX;
-                cy = newY;
-            }
-
+            cx = lerp(cx, newX, 0.5);
+            cy = lerp(cy, newY, 0.5);
         }
         let pointX = w - cx;
         let pointY = h - cy;
@@ -248,6 +242,8 @@ class Blob {
         pointX = map(pointX, 59, 636, 0, 667);
 
         ellipse(pointX, pointY, 10, 10);
+        console.log(this.inframe(pointX, pointY));
+
     }
     inframe(x, y) {
         if (x < width && x >= 0 && y >= 0 && y < height) {
