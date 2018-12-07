@@ -128,6 +128,7 @@ function mouseClicked() {
         b: pixels[index + 2]
     }
     console.log(targetColor);
+    console.log(mouseX);
     console.log(mouseY);
 
 
@@ -233,15 +234,15 @@ class Blob {
         if (newX < 1 || newY < 1) {
 
         } else {
-            cx = lerp(cx, newX, 0.6);
-            cy = lerp(cy, newY, 0.6);
+            cx = lerp(cx, newX, 0.5);
+            cy = lerp(cy, newY, 0.5);
         }
 
         let pointX = w - cx;
         let pointY = h - cy;
 
         pointY = map(pointY, 300, 375, 0, 375);
-
+        pointX = map(pointX, 100, 567, 0, 667);
         ellipse(pointX, pointY, 10, 10);
     }
 
