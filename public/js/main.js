@@ -9,6 +9,9 @@ var targetColor = {
 
 closeBtn.onclick = function () {
     closeVideo = !closeVideo;
+    background(0);
+    console.log("closeVideo");
+
 }
 var w = 667;
 var h = 375;
@@ -31,11 +34,11 @@ function draw() {
     if (closeVideo) {
         closeBtn.innerText = "開啟影片";
 
-
     } else {
         closeBtn.innerText = "關閉影片";
         video.loadPixels();
         loadPixels();
+
         var blobs = [];
 
 
@@ -105,7 +108,10 @@ function draw() {
             data.push(pos);
         }
         lowest.showmin();
-        socket.emit("position", data);
+        if (data.length != 0) {
+            socket.emit("position", data);
+        }
+
 
     }
 
