@@ -27,6 +27,7 @@ function setup() {
 function draw() {
 
 
+
     if (closeVideo) {
         closeBtn.innerText = "開啟影片";
 
@@ -228,6 +229,9 @@ class Blob {
         } else {
             cx = lerp(cx, newX, 0.3);
             cy = lerp(cy, newY, 0.3);
+        }
+        if (cy > 300) {
+            cy = map(300, cy, 0, 375);
         }
 
 
