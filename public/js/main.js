@@ -107,7 +107,10 @@ function draw() {
             }
             data.push(pos);
         }
-        lowest.showmin();
+        if (blobs.length > 0) {
+            lowest.showmin();
+        }
+
         if (data.length != 0) {
             socket.emit("position", data);
         }
@@ -242,7 +245,7 @@ class Blob {
         pointX = map(pointX, 59, 636, 0, 667);
 
         ellipse(pointX, pointY, 10, 10);
-        console.log(this.inframe(pointX, pointY));
+
 
     }
     inframe(x, y) {
