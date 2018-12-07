@@ -138,9 +138,15 @@ function mouseClicked() {
 
 var drawbtn = document.getElementById('draw');
 var canDraw = false;
-drawbtn.onclick = function () {
-    canDraw = !canDraw;
+
+function keyPressed() {
+    if (keyCode == 68) { //d key
+        canDraw = true;
+    } else {
+        canDraw = false;
+    }
 }
+
 socket.on("position", function (data) {
     if (canDraw) {
 
