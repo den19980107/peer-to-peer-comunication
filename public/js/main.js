@@ -233,9 +233,9 @@ class Blob {
 
         let pointX = w - cx;
         let pointY = h - cy;
-        if (pointY > 300) {
-            pointY = map(300, pointY, 0, 375);
-        }
+
+        pointY = map(pointY, 300, 375, 0, 375);
+
         ellipse(w - cx, h - cy, 10, 10);
     }
 
