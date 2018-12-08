@@ -143,7 +143,7 @@ function mouseClicked() {
 //     b: 0,
 //     a: 0
 // }
-var a;
+
 
 
 var drawbtn = document.getElementById('draw');
